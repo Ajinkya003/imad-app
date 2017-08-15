@@ -21,7 +21,7 @@ body {
 }
 .container{
     max-width: 900px;
-    background-color: white;
+    background-color: RGBA(165, 157, 157, 0.19);
     margin: 0 auto;
     font-family: san-serif;
     color: #333333;
