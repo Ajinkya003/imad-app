@@ -30,8 +30,8 @@ body {
 }
 .contendor{
     font-family: sans-serif;
-    background-color: #b9e2bb;
-    margin-top: 75px;
+    max-width: 900px;
+    margin-top: 0 auto;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 20;
