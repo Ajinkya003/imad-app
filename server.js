@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    Biography: {
+/*var articles = {};*/
+ var Biography = {
          title: ' Biography | Ajinkya Mohod',
          heading: 'About Me',
          date: 'DOB: Jun 14, 1996.',
@@ -34,8 +34,8 @@ var articles = {
                 <p>
                     I have a couple of hobbies, reading, exploring, travelling, listening to music and playing football.
                 </p>`
-    },
-    Education: {
+    };
+    /*Education: {
         title: 'Education | Ajinkya Mohod',
         heading: 'Education',
         date: '',
@@ -57,8 +57,8 @@ var articles = {
                 CBSE Board (Montfort School (CBSE), Nagpur)
                 CGPA: 8.60/10
                 </p>`
-    },
-};    
+    },*/
+    
 function createTemplate (data){
     var title = data.title;
     var heading = data.heading;
@@ -101,17 +101,17 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:articles', function(req, res) {
-     res.send(createTemplate(articles[Biography]));
+app.get('/Bio', function(req, res) {
+     res.send(createTemplate(Biography));
 });
 
-app.get('/:articles', function(req, res) {
+/*app.get('/:articles', function(req, res) {
      res.send(createTemplate(arrticles[Education]));
-});
-
-/*app.get('/Education', function(req, res) {
-     res.sendFile(path.join(__dirname, 'ui', 'Education.html'));
 });*/
+
+app.get('/Education', function(req, res) {
+     res.sendFile(path.join(__dirname, 'ui', 'Education.html'));
+});
 
 app.get('/article-three', function(req, res) {
     res.send('Article-three will be applied here');
