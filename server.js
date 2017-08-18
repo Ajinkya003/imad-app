@@ -5,6 +5,69 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var Biography = {
+     title: ' Biography | Ajinkya Mohod',
+     heading: 'About Me',
+     date: 'DOB: Jun 14, 1996.',
+     content: ` <p>
+                I am Ajinkya Mohod, I belong from Nagpur city, Maharashtra State.
+            <p>
+                I am pursuing my graduation Bachelor of Engineering(B.E) in Computer Engineering from Sinhgad Institute of Technology, Pune.
+                And I'm searching for an ideal platform to enhance my skills.
+            </p>
+            <p>
+                Coming on my strength, I am self-motivated, Hardworking & have ability to work with people of all types and background.
+            </p>
+             <p>
+                I'm a good observer, quick learner and a good team member
+            </p>
+            <p>
+                Well coming on my weaknesses, I am Argumentative, Stick to my viewpoint and don't feel comfortable until I finish my work given within a stipulated time period.
+            </p>
+            <p>
+                Coming to my family background, my father is a Teacher and my mother is a house wife.
+            </p>        
+            <p>
+                We are two siblings including me, my younger brother Shubham.
+            </p>
+            <p>
+                I have a couple of hobbies, reading, exploring, travelling, listening to music and playing football.
+            </p>`
+};
+
+var htmlTemplate = `
+    <html>
+    
+<head>
+    
+    <title>
+        ${title}
+    </title>
+    <meta name="viewport" content="width=device-width, inital-scale=1"/>
+    <link href="/ui/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div>
+            <a href="/">Home</a>
+            <a href="/Education">Education</a>
+        </div>
+        <hr/>
+        <h1>
+            ${heading}
+        </h1>
+        <div>
+            ${date}
+        </div>
+        <div>
+            ${content}
+        </div>
+    </div>    
+</body>
+</html>
+
+`;
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
