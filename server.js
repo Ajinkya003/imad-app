@@ -102,11 +102,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/Bio', function(req, res) {
-     res.send(createTemplate(Biography));
+     res.send(createTemplate(articles[Biography]));
 });
 
 app.get('/Education', function(req, res) {
-     res.send(createTemplate(Education));
+     res.send(createTemplate(arrticles[Education]));
 });
 
 /*app.get('/Education', function(req, res) {
