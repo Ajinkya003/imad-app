@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-varBiography = {
+var Biography = {
          title: ' Biography | Ajinkya Mohod',
          heading: 'About Me',
          date: 'DOB: Jun 14, 1996.',
