@@ -35,45 +35,51 @@ var Biography = {
             </p>`
 };
 
+function createTemplate (data){
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var caontent = data.content;
 var htmlTemplate = `
     <html>
     
-<head>
+    <head>
+        
+        <title>
+            ${title}
+        </title>
+        <meta name="viewport" content="width=device-width, inital-scale=1"/>
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <a href="/">Home</a>
+                <a href="/Education">Education</a>
+            </div>
+            <hr/>
+            <h1>
+                ${heading}
+            </h1>
+            <div>
+                ${date}
+            </div>
+            <div>
+                ${content}
+            </div>
+        </div>    
+    </body>
+    </html>
     
-    <title>
-        ${title}
-    </title>
-    <meta name="viewport" content="width=device-width, inital-scale=1"/>
-    <link href="/ui/style.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="container">
-        <div>
-            <a href="/">Home</a>
-            <a href="/Education">Education</a>
-        </div>
-        <hr/>
-        <h1>
-            ${heading}
-        </h1>
-        <div>
-            ${date}
-        </div>
-        <div>
-            ${content}
-        </div>
-    </div>    
-</body>
-</html>
-
-`;
-
+    `;
+    return htmlTemplate;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/Bio', function(req, res) {
-     res.sendFile(path.join(__dirname, 'ui', 'Bio.html'));
+     res.send(createTemplate(Biography));
 });
 
 app.get('/Education', function(req, res) {
