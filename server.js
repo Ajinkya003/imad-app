@@ -101,11 +101,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/Bio', function(req, res) {
+app.get('/:articles', function(req, res) {
      res.send(createTemplate(articles[Biography]));
 });
 
-app.get('/Education', function(req, res) {
+app.get('/:articles', function(req, res) {
      res.send(createTemplate(arrticles[Education]));
 });
 
