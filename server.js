@@ -38,6 +38,7 @@ var articles = {
     Education: {
         title: 'Education | Ajinkya Mohod',
         heading: 'Education',
+        date: '',
         content: `<p>
                   Bachelor of Engineering (B.E), Computer Science & Engineering (2014 - 2018)
                   Sinhgad Institute of Technology, Lonavala, Pune.
