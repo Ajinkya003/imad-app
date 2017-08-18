@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Biography = {
+var articles = {
+    Biography: {
          title: ' Biography | Ajinkya Mohod',
          heading: 'About Me',
          date: 'DOB: Jun 14, 1996.',
@@ -33,7 +34,30 @@ var Biography = {
                 <p>
                     I have a couple of hobbies, reading, exploring, travelling, listening to music and playing football.
                 </p>`
-    }
+    },
+    Education: {
+        title: 'Education | Ajinkya Mohod',
+        heading: 'Education',
+        content: `<p>
+                  Bachelor of Engineering (B.E), Computer Science & Engineering (2014 - 2018)
+                  Sinhgad Institute of Technology, Lonavala, Pune.
+                  Percentage: 55.20%
+                </p>
+                <p>
+                XII (Senior Secondary), Science
+                Year of Completion: 2014
+                STATE BOARD OF MAHARASHTRA. Board (Major Hemant Jakate
+                College, Nagpur)
+                Percentage: 66.00%
+                </p>
+                <p>
+                X (Secondary)
+                Year of Completion: 2012
+                CBSE Board (Montfort School (CBSE), Nagpur)
+                CGPA: 8.60/10
+                </p>`
+    },
+};    
 function createTemplate (data){
     var title = data.title;
     var heading = data.heading;
@@ -81,8 +105,12 @@ app.get('/Bio', function(req, res) {
 });
 
 app.get('/Education', function(req, res) {
-     res.sendFile(path.join(__dirname, 'ui', 'Education.html'));
+     res.send(createTemplate(Education));
 });
+
+/*app.get('/Education', function(req, res) {
+     res.sendFile(path.join(__dirname, 'ui', 'Education.html'));
+});*/
 
 app.get('/article-three', function(req, res) {
     res.send('Article-three will be applied here');
